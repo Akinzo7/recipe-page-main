@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap');
 
+/* -----------------------------
+   Reset & base
+   ----------------------------- */
 *{
     margin: 0;
     padding: 0;
@@ -12,13 +15,18 @@ body{
     height: 100vh;
 }
 
-img{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;;
+/* Typography helpers */
+h1, h2{
+    font-family: 'Young Serif', serif;
 }
 
+ul, ol {
+  list-style-position: inside;
+}
+
+/* -----------------------------
+   Layout / container
+   ----------------------------- */
 .container{
     max-width: 600px;
     margin: 0 auto;
@@ -31,20 +39,27 @@ img{
     flex-direction: column;
 }
 
-h1, h2{
-    font-family: 'Young Serif', serif;
+/* -----------------------------
+   Images
+   ----------------------------- */
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-ul, ol {
-  list-style-position: inside;
-}
-
+/* -----------------------------
+   Headings
+   ----------------------------- */
 h2{
     color:#854632ff;
     font-weight: normal;
 }
 
-
+/* -----------------------------
+   Food meta (title, desc)
+   ----------------------------- */
 .food-title{
     font-weight: 400;
     margin: 20px 0;
@@ -56,13 +71,15 @@ h2{
     line-height: 1.5;
 }
 
+/* -----------------------------
+   Preparation time block
+   ----------------------------- */
 .food-preparation-time{
     background-color:  #fff7fc;
     color: black;  
     border-radius: 8px;
     padding: 20px;
     margin-top: 20px;
-
     font-size: 13px;
 }
 
@@ -77,8 +94,9 @@ h2{
     padding-left: 10px; 
 }
 
-
-
+/* -----------------------------
+   Shared/utility classes
+   ----------------------------- */
 .list-style-span{
     color:black;
     font-weight: 600;
@@ -93,18 +111,22 @@ h2{
     font-weight: normal;
 }
 
-
+/* -----------------------------
+   Ingredients list
+   ----------------------------- */
 .food-ingredients li{
     margin-bottom: 15px;
     padding-left: 10px;
     font-size: 13px;
 }
 
-.food-ingredientsli::marker {
+.food-ingredients li::marker {
   color:#7b284f;
 }
 
-
+/* -----------------------------
+   Dividers and list markers
+   ----------------------------- */
 hr {
     margin: 20px 0;
     height: 1px;
@@ -117,10 +139,13 @@ li::marker {
   font-weight: bold;
 }
 
+/* -----------------------------
+   Instructions
+   ----------------------------- */
 .instructions ol{
     list-style-position: outside;
     padding-left: 1.5rem; 
-    font-family: outfit;
+    font-family: "Outfit", sans-serif;
     line-height: 1.5;
     font-size: 13.5px;
 }
@@ -131,13 +156,17 @@ li::marker {
     text-indent: 0;
 }
 
-
-
+/* -----------------------------
+   Nutrition
+   ----------------------------- */
 .nutrition p{
     font-size: 13px;
     margin-bottom: 10px;
 }
 
+/* -----------------------------
+   Tables
+   ----------------------------- */
 table{
     width: 100%;
     border-collapse: collapse ;
@@ -153,12 +182,52 @@ th, td{
 th{
     font-weight: normal;
 }
+
 td{
-    color: #854632ff;
+    color: #854632;
     font-weight: 700;
 }
 
+/* -----------------------------
+   Footer / attribution
+   ----------------------------- */
 .attribution{
     display: block;
     margin-top: 50px;
+}
+
+
+
+
+  @media (max-width: 600px) {
+
+  body {
+    background-color: #f3e5d8;
+    margin: 0;
+    padding: 0; /* NO padding on body */
+  }
+
+  /* Remove container padding only at the top to let image touch */
+  .container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #fff;
+  }
+
+  /* Full-width image, no radius */
+  .food-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    display: block;
+  }
+
+  /* Add padding only to main content area */
+  #main,.food-ingredients, .instructions, .nutrition {
+    padding: 20px;
+  }
 }
